@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Poppins:wght@300;500&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: black;
+  overflow: hidden;
+  color: white;
+}
+
+/* 🎥 CINEMATIC 3D MASCULINE BACKGROUND */
+.bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,80,80,0.18), transparent 45%),
+    radial-gradient(circle at 70% 80%, rgba(80,120,255,0.18), transparent 45%),
+    linear-gradient(135deg, #050505, #0b0f1a, #000);
+  animation: cinematicShift 12s ease-in-out infinite;
+  z-index: -3;
+}
+
+/* Spotlight */
+.bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 20% 30%,
+    rgba(255,255,255,0.08),
+    transparent 55%
+  );
+}
+
+/* Film grain for 3D depth */
+.bg::after {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background: repeating-radial-gradient(
+    circle,
+    rgba(255,255,255,0.04) 0 2px,
+    transparent 3px 40px
+  );
+  animation: grainMove 20s linear infinite;
+}
+
+@keyframes cinematicShift {
+  0% {
+    transform: scale(1) translateY(0);
+    filter: brightness(0.9) contrast(1);
+  }
+  50% {
+    transform: scale(1.05) translateY(-10px);
+    filter: brightness(1.05) contrast(1.1);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    filter: brightness(0.95) contrast(1);
+  }
+}
+
+@keyframes grainMove {
+  from { transform: translateY(0); }
+  to { transform: translateY(200px); }
+}
+
+/* PAGE LAYOUT */
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.card {
+  backdrop-filter: blur(14px);
+  background: rgba(0,0,0,0.6);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 420px;
+  animation: fadeIn 1.5s ease;
+  box-shadow: 0 0 35px rgba(255,0,100,0.25);
+}
+
+@keyframes fadeIn {
+  from { opacity:0; transform:scale(0.92); }
+  to { opacity:1; transform:scale(1); }
+}
+
+h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 26px;
+  letter-spacing: 1.5px;
+  margin-bottom: 18px;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+button {
+  margin-top: 25px;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #ff0055, #ff4d88);
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(255,0,100,0.6);
+  transition: 0.3s;
+}
+
+button:hover { transform: scale(1.08); }
+
+iframe {
+  width: 100%;
+  height: 360px;
+  border-radius: 12px;
+  border: none;
+  margin-top: 15px;
+}
+
+.tap {
+  font-size: 11px;
+  opacity: 0.6;
+  margin-top: 10px;
+}
+
+/* PAGE VISIBILITY */
+#page2, #page3 { display:none; }
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<!-- 🎧 MUSIC (uploaded file) -->
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 1 -->
+<div class="container" id="page1">
+  <div class="card">
+    <h1>Hey Aryman…</h1>
+    <p>
+     I didn’t want this to be loud or dramatic.  
+    I just wanted it to be honest.
+    I feel something real with you —  
+   calm, curious, and a little intense but real and rare.
+    I don’t know the perfect way to say this,  
+    but I know I wanted to say it *my way*.<br><br>
+      I respect you.  
+    And I’d really love to know how *you* feel —
+    honestly, without pressure.
+    I won’t rush you.
+    And don't know when or how but my 'like' did turn into something else,
+  I THINK I LOVE YOU...I REALLY DO :) 
+    </p>
+    <button onclick="goToPage(2)">Continue</button>
+    <div class="tap">(tap anywhere to start music)</div>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="container" id="page2">
+  <div class="card">
+    <h1>One Honest Answer ❤️</h1>
+    <p>
+      Whatever you feel —  
+      I am grateful it.
+      One thing is forever- the warmth you bring into my life.
+    </p>
+
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdEA4yhXDf18-dvROnv1ldzwn2XwAV5jWbE7GT_6ptHhS0XXw/viewform?usp=publish-editor"></iframe>
+
+    <button onclick="goToPage(3)">Done ✨</button>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="container" id="page3">
+  <div class="card">
+    <h1>Thank You 🤍</h1>
+    <p>
+      Thank you for being honest with me.<br><br>
+      Whatever your answer is,  
+      I appreciate you —  
+      and the space we share.
+    </p>
+    <button>Forever ♾️</button>
+  </div>
+</div>
+
+<script>
+const music = document.getElementById("music");
+
+document.addEventListener("click", () => {
+  music.play();
+});
+
+function goToPage(n) {
+  document.getElementById("page1").style.display = "none";
+  document.getElementById("page2").style.display = "none";
+  document.getElementById("page3").style.display = "none";
+  document.getElementById("page" + n).style.display = "flex";
+}
+</script>
+
+</body>
+</html>
